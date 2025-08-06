@@ -1,0 +1,74 @@
+Scenario 1: Full Task Lifecycle
+Description:
+Test the complete lifecycle of tasks including adding, editing, toggling completion, deleting, and filtering.
+
+Steps:
+1. Add multiple tasks.
+2. Edit one task’s text.
+3. Mark some tasks as completed.
+4. Filter tasks by “Active” and verify only incomplete tasks show.
+5. Filter tasks by “Completed” and verify only completed tasks show.
+6. Delete one or more tasks.
+7. Verify the list updates correctly after each operation.
+8. Reload the app to verify persistence via localStorage.
+
+Expected Results:
+• Tasks are correctly added, edited, toggled, filtered, and deleted.
+• Toast notifications appear on each action.
+• Data persists correctly across reloads.
+• UI remains consistent and responsive.
+
+Scenario 2: Handling Empty and Invalid Inputs
+Description:
+Verify the app behavior when the user attempts to add or edit tasks with invalid or empty input.
+
+Steps:
+1. Attempt to add a task with empty or whitespace-only input.
+2. Attempt to edit a task to empty or whitespace-only text.
+3. Verify validation messages or prevention of invalid input.
+
+Expected Results:
+• Invalid inputs are rejected.
+• Appropriate validation messages are shown.
+• No invalid tasks are added or saved.
+
+Scenario 3: Persistence and Data Corruption Handling
+Description:
+Test data persistence through localStorage, including the app’s behavior when corrupted data is encountered.
+
+Steps:
+1. Add tasks and verify they persist after page reload.
+2. Manually corrupt localStorage data and reload the app.
+3. Verify app does not crash and handles corrupted data gracefully.
+
+Expected Results:
+• Data persists correctly under normal conditions.
+• Corrupted data does not cause crashes; app recovers gracefully.
+
+Scenario 4: UI and Accessibility Checks
+Description:
+Ensure the UI responds properly and is accessible.
+
+Steps:
+1. Test app responsiveness on different screen sizes (mobile, tablet, desktop).
+2. Navigate the app using keyboard only (tab, enter, space keys).
+3. Verify visible focus indicators and ARIA roles where applicable.
+
+Expected Results:
+• UI is responsive and usable across devices.
+• Keyboard navigation works seamlessly.
+• Accessibility standards are met.
+
+Scenario 5: Toast Notification Verification
+Description:
+Confirm toast notifications appear appropriately on user actions.
+
+Steps:
+1. Add a task and observe toast.
+2. Edit a task and observe toast.
+3. Toggle completion status and observe toast.
+4. Delete a task and observe toast.
+
+Expected Results:
+• Toasts appear promptly after each action.
+• Toasts display relevant messages.

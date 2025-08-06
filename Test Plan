@@ -1,0 +1,26 @@
+Objective
+To verify that the TodoApp meets the functional requirements of adding, editing, deleting, toggling, filtering tasks, and ensures data persistence and user-friendly UI behavior.
+
+Scope
+• Functional testing of all core features (CRUD on todos).
+• UI validation for responsiveness and accessibility.
+• Data persistence testing (localStorage).
+• Input validation and error handling.
+• Visual feedback (toast notifications).
+• Cross-browser compatibility (optional).
+
+Test Approach
+• Manual testing supported by exploratory testing.
+• Use React Testing Library for component-level automated tests (optional).
+• Regression testing for future releases.
+• Emphasis on edge cases (empty input, corrupted data, etc.).
+
+Test Environment
+• Browsers: Chrome, Firefox, Edge (latest versions).
+• Devices: Desktop and mobile viewport sizes.
+• OS: Windows, macOS (optional).
+
+Deliverables
+• Test cases (positive & negative).
+• Bug reports (if any).
+• Test summary and closure reports.

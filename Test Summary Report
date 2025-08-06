@@ -1,0 +1,51 @@
+Project Name: TodoApp – React/Next.js To-Do List Application
+Tested By: Andreja Mihajlovski
+Test Period: 04-Aug-2025 – 04-Aug-2025
+Test Type: Manual Functional Testing
+Version Tested: v1.0.0
+Environment:
+• Browser: Chrome 126, Firefox 128, Edge 126
+• OS: Windows 10 / macOS Ventura
+• Device: Desktop and Mobile (Responsive Check)
+
+1. Objective
+The objective of this testing cycle was to verify that the TodoApp meets functional requirements for adding, editing, deleting, toggling, and filtering tasks, while ensuring data persistence and a responsive, accessible UI.
+
+2. Scope
+In Scope:
+• Functional testing of all CRUD operations on tasks.
+• Validation of filters (All, Active, Completed).
+• Data persistence testing with localStorage.
+• Input validation and error handling.
+• Visual feedback (toast notifications).
+• UI responsiveness and basic accessibility checks.
+
+Out of Scope:
+• API testing (no backend present).
+• Performance benchmarking.
+• Automated regression testing.
+
+3. Summary of Testing
+• Total Test Cases Executed: 10
+• Positive Test Cases: 5 (100% passed)
+• Negative Test Cases: 5 (3 passed, 2 failed due to open bugs)
+• Total Bugs Found: 10
+o Critical: 1
+o High: 1
+o Medium: 4
+o Low: 4
+
+4. Key Findings
+• Strengths:
+o Core functionality for adding, editing, deleting, and toggling tasks works reliably under normal conditions.
+o UI is clean, responsive, and intuitive.
+o Toast notifications provide clear feedback for most actions.
+• Issues:
+o Input validation is incomplete (BR001, BR002).
+o No error handling for corrupted localStorage data (BR004).
+o Minor UI/UX bugs related to filtering, toast stacking, and accessibility (BR005, BR008, BR009).
+
+5. Conclusion & Recommendation
+The TodoApp is functionally solid for standard use cases but requires fixes for input validation and error handling before release.
+Once critical and high-severity bugs are resolved, the application can be considered ready for deployment.
+Recommendation: Proceed with bug fixes for BR001, BR002, BR004 before moving to production.

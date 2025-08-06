@@ -1,0 +1,49 @@
+TodoList - React/Next.js To-Do List Application
+A simple and functional To-Do list application built with React and TypeScript, styled using Tailwind CSS and custom components.
+
+Features
+- Add, edit, complete, and delete tasks.
+- Filter tasks by All, Active, or Completed.
+- Persistent storage using `localStorage`.
+- Dark mode support via Tailwind CSS configuration.
+- Responsive design with accessible UI elements.
+- Smooth animations for task interactions.
+- Toast notifications for user feedback.
+
+Installation
+1. Clone the repository:
+   bash
+2.	git clone https://github.com/yourusername/todoapp.git
+Navigate to the project directory:
+bash
+CopyEdit
+cd todoapp
+3. Install dependencies:
+bash
+CopyEdit
+npm install
+4. Run the development server:
+bash
+CopyEdit
+npm run dev
+5. Open your browser and visit http://localhost:3000 to see the app in action.
+6. https://lovable.dev/projects/7b5dc1c9-342a-4d2f-915c-bcbdd506d393?magic_link=mc_11566ea9-cec9-48b8-ab2d-6c7d51ea2165
+
+Project Structure
+• ToDoList: Main component managing the todo state and logic.
+• TodoInput: Input form component for adding new tasks.
+• TodoFilters: Component for filtering tasks.
+• TodoList: Renders the list of todos with edit, delete, and toggle functionality.
+• Card: UI container with shadow and border styles.
+• useToast: Hook for toast notifications.
+
+Technologies Used
+• React with TypeScript
+• Tailwind CSS with custom theming
+• lucide-react icons
+• class-variance-authority for component styling variants
+
+Notes
+• Tasks are stored in localStorage and loaded on app start.
+• Unique IDs are generated with crypto.randomUUID().
+• Graceful error handling on localStorage data retrieval.

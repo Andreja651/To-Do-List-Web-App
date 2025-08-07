@@ -1,0 +1,130 @@
+import { useState } from "react";
+import { Todo } from "./TodoApp";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Card } from "@/components/ui/card";
+import { Edit2, Trash2, Check, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface TodoItemProps {
+  todo: Todo;
+  onToggle: (id: string) => void;
+  onDelete: (id: string) => void;
+  onEdit: (id: string, newText: string) => void;
+  index: number;
+}
+
+export const TodoItem = ({
+  todo,
+  onToggle,
+  onDelete,
+  onEdit,
+  index,
+}: TodoItemProps) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editValue, setEditValue] = useState(todo.text);
+
+  const handleEdit = () => {
+    if (editValue.trim() && editValue.trim() !== todo.text) {
+      onEdit(todo.id, editValue.trim());
+    }
+    setIsEditing(false);
+    setEditValue(todo.text);
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+    setEditValue(todo.text);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleEdit();
+    } else if (e.key === "Escape") {
+      handleCancel();
+    }
+  };
+
+  return (
+    <Card
+      className={cn(
+        "p-4 transition-all duration-300 task-enter card-elevated",
+        "hover:shadow-md",
+        todo.completed && "task-complete completed"
+      )}
+      style={{
+        animationDelay: `${index * 50}ms`,
+      }}
+    >
+      <div className="flex items-center gap-3">
+        <Checkbox
+          checked={todo.completed}
+          onCheckedChange={() => onToggle(todo.id)}
+          className="w-5 h-5"
+        />
+
+        <div className="flex-1">
+          {isEditing ? (
+            <div className="flex items-center gap-2">
+              <Input
+                value={editValue}
+                onChange={(e) => setEditValue(e.target.value)}
+                onKeyDown={handleKeyPress}
+                className="flex-1"
+                autoFocus
+              />
+              <Button
+                variant="icon"
+                size="sm"
+                onClick={handleEdit}
+                disabled={!editValue.trim()}
+              >
+                <Check className="w-4 h-4 text-success" />
+              </Button>
+              <Button variant="icon" size="sm" onClick={handleCancel}>
+                <X className="w-4 h-4 text-muted-foreground" />
+              </Button>
+            </div>
+          ) : (
+            <span
+              className={cn(
+                "text-base transition-all duration-200",
+                todo.completed &&
+                  "line-through text-muted-foreground opacity-70"
+              )}
+            >
+              {todo.text}
+            </span>
+          )}
+        </div>
+
+        {!isEditing && (
+          <div className="flex items-center gap-2">
+            <Button
+              variant="icon"
+              size="sm"
+              onClick={() => setIsEditing(true)}
+              disabled={todo.completed}
+            >
+              <Edit2 className="w-4 h-4 text-muted-foreground hover:text-foreground" />
+            </Button>
+            <Button
+              variant="icon"
+              size="sm"
+              onClick={() => onDelete(todo.id)}
+            >
+              <Trash2 className="w-4 h-4 text-muted-foreground hover:text-destructive" />
+            </Button>
+          </div>
+        )}
+      </div>
+
+      {todo.completed && (
+        <div className="mt-2 text-xs text-success font-medium">
+          ✓ Completed
+        </div>
+      )}
+    </Card>
+  );
+};

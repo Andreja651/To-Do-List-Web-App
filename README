@@ -2,8 +2,8 @@ TodoList - React/Next.js To-Do List Application
 A simple and functional To-Do list application built with React and TypeScript, styled using Tailwind CSS and custom components.
 
 Features
-- Add, edit, complete, and delete tasks.
-- Filter tasks by All, Active, or Completed.
+- Add, edit, complete and delete tasks.
+- Filter tasks by All, Active or Completed.
 - Persistent storage using `localStorage`.
 - Dark mode support via Tailwind CSS configuration.
 - Responsive design with accessible UI elements.
